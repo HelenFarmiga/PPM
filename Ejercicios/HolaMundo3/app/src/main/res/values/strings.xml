@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">Hola Mundo 3</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="app2_name">Pantalla Saludo</string>
+    <string name="saludo">Prueba Saludo</string>
+    <string name="escribe">Introduce nombre</string>
+    <string name="pulsar">Pulsa</string>
+    <string name="volver">Volver</string>
+    <string name="title_activity_segunda">SegundaActivity</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>

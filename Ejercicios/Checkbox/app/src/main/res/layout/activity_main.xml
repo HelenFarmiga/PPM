@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:background="@color/colorBackground"
+>
+
+
+<CheckBox
+    android:text="Game of Thrones"
+    android:id="@+id/chkBoxGOT"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+</CheckBox>
+
+<CheckBox
+    android:text="Orange is the New Black"
+    android:id="@+id/chkBoxOITNB"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+</CheckBox>
+
+<CheckBox
+    android:text="The big bang Theory"
+    android:id="@+id/chkBoxTBBT"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+</CheckBox>
+<Button
+    android:text="Get Serie"
+    android:id="@+id/btnSerie"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+</Button>
+
+<TextView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/txtSerie"
+    android:text="@string/opHobby">
+</TextView>
+
+</LinearLayout>
