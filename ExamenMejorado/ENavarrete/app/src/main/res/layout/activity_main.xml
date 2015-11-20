@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:divider="?android:dividerHorizontal"
+    android:showDividers="middle"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="147dp"
+        android:layout_height="45dp"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        android:divider="?android:dividerHorizontal"
+        android:text="¡¡PIZZERIA ONLINE!!!"
+        android:id="@+id/textView"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorSB"
+     />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Spinner
+            android:id="@+id/spin"
+            android:layout_height="wrap_content"
+            android:layout_width="410px"
+            android:layout_marginRight="20dp" />
+
+        <ImageView
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:id="@+id/imageView"
+            android:background="@drawable/logopizza"/>
+
+    </LinearLayout>
+
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/grupoRadio">
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:typeface="sans"
+        android:text="Envio Domicilio"
+        android:id="@+id/rb2"
+        android:layout_gravity="center_horizontal" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="sans"
+            android:text="En local"
+            android:id="@+id/rb1"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.10" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+Grande"
+            android:typeface="sans"
+            android:id="@+id/cbGrande"
+            android:layout_marginRight="15dp"/>
+
+        <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+Ingrendientes"
+        android:typeface="sans"
+        android:id="@+id/cbIng"
+        android:layout_marginBottom="20dp"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+Queso"
+            android:typeface="sans"
+            android:id="@+id/cbQueso"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Numero de Unidades"
+        android:inputType="numberDecimal"
+        android:id="@+id/cant"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:text="Total Pedido"
+        android:typeface="sans"
+        android:id="@+id/btCal"/>
+
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        android:divider="?android:dividerHorizontal"
+        android:text=""
+        android:id="@+id/Res"
+        android:inputType="numberDecimal"
+        android:background="@color/colorSB"
+        android:layout_gravity="right" />
+
+</LinearLayout>
