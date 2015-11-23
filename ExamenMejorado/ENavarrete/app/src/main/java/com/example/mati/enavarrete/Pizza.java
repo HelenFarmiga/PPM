@@ -1,6 +1,6 @@
 package com.example.mati.enavarrete;
 
-public class Pizza {
+public class para AngePizza {
         private String nombre;
         private String descripcion;
         private String precio;
