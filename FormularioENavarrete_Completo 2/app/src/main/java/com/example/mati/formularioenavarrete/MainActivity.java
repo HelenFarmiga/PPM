@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     double precioTotal = 0;
     double precioMenu = 0;
     double sum = 0;
-    double unidades = 0;
+    int unidades = 0;
     double PrecioPorEnvio = 0;
     double PrecioPorSesion=0;
 
@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
                     bundle.putString("Nombre", nom);
                     bundle.putDouble("precioP", precioP);
                     bundle.putString("Extra", extra);
-                    bundle.putDouble("Cantidad", unidades);
+                    bundle.putInt("Cantidad", unidades);
                     bundle.putDouble("PRECIO", precioTotal);
                     bundle.putString("Envio", tipo);
                     bundle.putString("Hora", tipo2);

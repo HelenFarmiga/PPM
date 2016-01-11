@@ -27,7 +27,7 @@ public class SegundaPantalla extends AppCompatActivity {
         String ex = bundle.getString("Extra");
         int img = bundle.getInt("IMAGEN");
         String sesion = bundle.getString("Hora");
-        Double unidades = bundle.getDouble("Cantidad");
+        int unidades = bundle.getInt("Cantidad");
         String envio = bundle.getString("Envio");
 
 
@@ -36,7 +36,7 @@ public class SegundaPantalla extends AppCompatActivity {
 
         nombre.setText( name);
         extra.setText(" Sesión del " + ex);
-        tUnidades.setText("Entradas: " +Double.toString(unidades));
+        tUnidades.setText("Entradas: " +unidades);
         tvPrecio.setText("Precio total : " + Double.toString(precio) + " €");
         tvEnvio.setText("Envio: " + envio);
         tvSesion.setText("Hora: " +sesion);
