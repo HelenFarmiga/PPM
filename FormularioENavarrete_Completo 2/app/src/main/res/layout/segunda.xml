@@ -71,4 +71,11 @@
         android:layout_marginTop="30dp"
         android:layout_gravity="right"
         android:visibility="visible" />
+    <Button
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:text="Guardar en BD "
+        android:typeface="sans"
+        android:id="@+id/btDB"
+        android:layout_gravity="right" />
 </LinearLayout>
