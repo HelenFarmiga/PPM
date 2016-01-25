@@ -2,7 +2,6 @@ package com.example.mati.formularioenavarrete;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,39 +12,49 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class SegundaPantalla extends AppCompatActivity {
+    int numImagen;
+    TextView nombre;
+    TextView precio;
+    TextView sesion;
+    TextView unidades;
+    TextView envio;
+    TextView extra;
+    ImageView Imagen;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.segunda);
-        final TextView nombre = (TextView) findViewById(R.id.TPeli);
-        final TextView extra = (TextView) findViewById(R.id.TExtra);
-        final TextView tUnidades = (TextView) findViewById(R.id.tUnidades);
-        final TextView tvPrecio = (TextView) findViewById(R.id.tvPrecio);
-        final ImageView ivImagen = (ImageView) findViewById(R.id.ivPeli);
-        final AnalogClock Reloj = (AnalogClock)findViewById(R.id.reloj);
-        final TextView tvEnvio = (TextView)findViewById(R.id.TEnvio);
-        final TextView tvSesion =(TextView)findViewById(R.id.TSesion);
+        this.setTitle("Factura");
+         nombre = (TextView) findViewById(R.id.TPeli);
+         extra = (TextView) findViewById(R.id.TExtra);
+         unidades = (TextView) findViewById(R.id.tUnidades);
+         precio = (TextView) findViewById(R.id.tvPrecio);
+         Imagen = (ImageView) findViewById(R.id.ivPeli);
+         AnalogClock Reloj = (AnalogClock) findViewById(R.id.reloj);
+         envio = (TextView) findViewById(R.id.TEnvio);
+         sesion = (TextView) findViewById(R.id.TSesion);
 
-        final Button BD = (Button)findViewById(R.id.btDB);
+         Button BD = (Button) findViewById(R.id.btDB);
+
         Bundle bundle = getIntent().getExtras();
 
-        String name = bundle.getString("Nombre");
-        Double precio = bundle.getDouble("PRECIO");
-        String ex= bundle.getString("Extra");
+        String NNombre = bundle.getString("Nombre");
+        Double TPrecio = bundle.getDouble("PRECIO");
+        String ex = bundle.getString("Extra");
         int img = bundle.getInt("IMAGEN");
-        String sesion = bundle.getString("Hora");
-        int unidades = bundle.getInt("Cantidad");
-        String envio = bundle.getString("Envio");
+        String Ssesion = bundle.getString("Hora");
+        int UUnidades = bundle.getInt("Cantidad");
+        String Eenvio = bundle.getString("Envio");
 
 
-        nombre.setText( name);
-        extra.setText(" Sesión del " + ex);
-        tUnidades.setText("Entradas: " +unidades);
-        tvPrecio.setText("Precio total : " + Double.toString(precio) + " €");
-        tvEnvio.setText("Envio: " + envio);
-        tvSesion.setText("Hora: " +sesion);
-        ivImagen.setImageResource(img);
+        nombre.setText(NNombre);
+        extra.setText(" Aperitivo: " + ex);
+        unidades.setText("Entradas: " + UUnidades);
+        precio.setText("Precio total : " + Double.toString(TPrecio) + " €");
+        envio.setText("Envio: " + Eenvio);
+        sesion.setText("Hora: " + Ssesion);
+        Imagen.setImageResource(img);
         Reloj.setVisibility(ImageView.VISIBLE);
-
         BD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,38 +62,36 @@ public class SegundaPantalla extends AppCompatActivity {
             }
         });
     }
-    public void insertarPedido(){
 
-        SQLiteHelper admin = new SQLiteHelper(this,"pedidos.sqlite", null, 1);
-        SQLiteDatabase bd = admin.getWritableDatabase();
 
-        String Nombre     = this.Nombre.getText()    .toString();
-        String tamano     = this.tamano.getText()    .toString();
-        String aperativo  = this.aperativo.getText() .toString();
-        String unidades   = this.unidades.getText()  .toString();
-        String precio     = this.precio.getText()    .toString();
+        public void insertarPedido(){
 
-        ContentValues contentValues = new ContentValues();
+            SQLiteHelper admin = new SQLiteHelper(this,"cine.sqlite", null, 1);
+            SQLiteDatabase bd = admin.getWritableDatabase();
 
-        contentValues.put("bebida"    , bebida);
-        contentValues.put("tamano"    , tamano);
-        contentValues.put("aperativo" , aperativo);
-        contentValues.put("unidades"  , unidades);
-        contentValues.put("precio"    , precio);
-        contentValues.put("imagen"    , numImagen);
 
-        bd.insert("Pedidos", null, contentValues);
-        bd.close();
 
-        Toast.makeText(this, "Pedido guardado correctamente", Toast.LENGTH_SHORT).show();
+            String nombre     = this.nombre.getText()    .toString();
+            String precio = this.precio.getText() . toString();
+            String sesion  = this.sesion.getText() .toString();
+            String unidades   = this.unidades.getText()  .toString();
+            String envio     = this.envio.getText()    .toString();
+
+            ContentValues contentValues = new ContentValues();
+
+            contentValues.put("nombre"    , nombre);
+            contentValues.put("precio"    , precio);
+            contentValues.put("sesion" , sesion);
+            contentValues.put("unidades"  , unidades);
+            contentValues.put("envio"    , envio);
+            contentValues.put("imagen"    , numImagen);
+
+            bd.insert("Pedidos", null, contentValues);
+            bd.close();
+
+            Toast.makeText(this, "Pedido guardado correctamente", Toast.LENGTH_SHORT).show();
+        }
     }
-}
-
-
-    }
-
-
-
 
 
 

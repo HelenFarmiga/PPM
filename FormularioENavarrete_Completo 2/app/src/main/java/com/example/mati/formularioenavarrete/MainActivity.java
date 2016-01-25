@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -22,13 +21,12 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    CheckBox lunes, martes, miercoles, jueves, viernes, sabado, domingo;
+    CheckBox saladas, dulces, nachos;
     EditText Cantidad;
     Spinner miSpinner;
     RadioGroup radioGroup;
     RadioGroup radioGroup2;
     Button calcular;
-    TextView lblMensaje;
 
     String gen;
     String hora;
@@ -40,18 +38,18 @@ public class MainActivity extends AppCompatActivity {
 
     Boolean enviar=false;
     Boolean ultima=false;
-    String extra="Lunes";
+String extra;
 
     double precioP = 0;
     double precioTotal = 0;
     double precioMenu = 0;
     double sum = 0;
-    int unidades = 0;
+    double unidades = 0;
     double PrecioPorEnvio = 0;
     double PrecioPorSesion=0;
-    ViewHolder holder;
 
-    private Pelicula[] Peliculas = new Pelicula[]{
+
+    private Pelicula[] objetosSpinner = new Pelicula[]{
             new Pelicula("Pitch Perfect 2","|Comedia/Musical |","6", "€ |17:30|20:40|22:00", R.drawable.pelicula1),
             new Pelicula("Escuadrón Suicida","|Accion |","8","€ |18:15|20:00|23:45", R.drawable.pelicula2),
             new Pelicula("12 años de esclavitud", "|Drama|" ,"8", "€ |18:00|20:25|22:30", R.drawable.pelicula3),
@@ -70,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         Activity context;
 
         MiAdaptador(Activity context) {
-            super(context, R.layout.items_spinner, Peliculas);
+            super(context, R.layout.items_spinner, objetosSpinner);
             this.context = context;
 
         }
@@ -79,54 +77,46 @@ public class MainActivity extends AppCompatActivity {
             return getView(position, convertView, parent);
 
         }
+
         public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater = getLayoutInflater();
+            convertView = inflater.inflate(R.layout.items_spinner, null);
 
-            View item = convertView;
+            TextView nombre = (TextView) convertView.findViewById(R.id.TvPizza);
+            nombre.setText(objetosSpinner[position].getNombre());
 
-            if(item==null){
-                LayoutInflater inflater = getLayoutInflater();
-                item = inflater.inflate(R.layout.items_spinner, null);
+            TextView genero = (TextView) convertView.findViewById(R.id.tvGenero);
+            genero.setText(objetosSpinner[position].getGenero());
 
-                holder = new ViewHolder();
+            TextView precio = (TextView) convertView.findViewById(R.id.tvPrecio);
+            precio.setText(objetosSpinner[position].getPrecio());
+            TextView horario = (TextView) convertView.findViewById(R.id.tvHorario);
+            horario.setText(objetosSpinner[position].getHorario());
 
-                holder.nombre = (TextView)item.findViewById(R.id.TvPizza);
-                holder.genero = (TextView)item.findViewById(R.id.tvPrecio);
-                holder.precio = (TextView)item.findViewById(R.id.tvPrecio);
-                holder.horario = (TextView)item.findViewById(R.id.tvPrecio);
-                holder.imagen = (ImageView)item.findViewById(R.id.ivImagen);
+            ImageView imagen = (ImageView) convertView.findViewById(R.id.ivImagen);
+            imagen.setImageResource(objetosSpinner[position].getImagen());
 
-                item.setTag(holder);
-            }
-            else {
-                holder = (ViewHolder)item.getTag();
-            }
-            holder.nombre.setText(Peliculas[position].getNombre());
-            holder.genero.setText(Peliculas[position].getGenero());
-            holder.precio.setText(String.valueOf(Peliculas[position].getPrecio()));
-            holder.horario.setText(Peliculas[position].getHorario());
-            holder.imagen.setImageResource(Peliculas[position].getImagen());
-            return (item);
-
+            nom = objetosSpinner[position].getNombre();
+            gen = objetosSpinner[position].getGenero();
+            precioP = Integer.parseInt(objetosSpinner[position].getPrecio());
+            hora = objetosSpinner[position].getHorario();
+            imagenPeli = objetosSpinner[position].getImagen();
+            return convertView;
         }
     }
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        lunes = (CheckBox) findViewById(R.id.cbl);
-        martes = (CheckBox) findViewById(R.id.cbm);
-        miercoles = (CheckBox) findViewById(R.id.cbx);
-        jueves=(CheckBox)findViewById(R.id.cbj);
-        viernes=(CheckBox)findViewById(R.id.cbv);
-        sabado=(CheckBox)findViewById(R.id.cbs);
-        domingo=(CheckBox)findViewById(R.id.cbd);
+        saladas = (CheckBox) findViewById(R.id.cbl);
+        dulces = (CheckBox) findViewById(R.id.cbm);
+        nachos = (CheckBox) findViewById(R.id.cbx);
 
         Cantidad = (EditText) findViewById(R.id.cant);
 
 
-       final MiAdaptador adaptador = new MiAdaptador(this);
+        MiAdaptador adaptador = new MiAdaptador(this);
         miSpinner = (Spinner) findViewById(R.id.spin);
         miSpinner.setAdapter(adaptador);
 
@@ -165,69 +155,47 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         });
+        /*
         precioMenu = 0;
-        lunes.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
+        saladas.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (lunes.isChecked()) {
-                    extra= "Lunes";
+                if (saladas.isChecked()) {
+                    extra += "saladas";
+                    precioMenu += 1;
+                }
+
+                else{
+
+                    precioMenu -=1;
                 }
 
             }
         });
-        martes.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
+        dulces.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (martes.isChecked()) {
-                    extra= "Martes";
-            }
-            }
-        });
-        miercoles.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (miercoles.isChecked()) {
-                    extra = "Miercoles";
-                    precioMenu -= 1;
+                if (dulces.isChecked()) {
+                    extra += "dulces";
+                    precioMenu += 1;
                 }
                 else{
-                    precioMenu +=1;
+                    precioMenu -=1;
                 }
+
             }
         });
-            jueves.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (jueves.isChecked()) {
-                        extra = "Jueves";
-                    }
+        nachos.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (nachos.isChecked()) {
+                    extra += "nachos";
+                    precioMenu += 1;
                 }
-            });
-            viernes.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (viernes.isChecked()) {
-                        extra = "Viernes";
-                    }
+                else{
+                    precioMenu -=1;
                 }
-            });
-            sabado.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (sabado.isChecked()) {
-                        extra = "Sabado";
-                        precioMenu += 1;
-                    }
-                    else{
-                        precioMenu -=1;
-                    }
-                }
-            });
-            domingo.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (domingo.isChecked()) {
-                        extra = "Domingo";
-                        precioMenu += 1;
-                    }
-                    else{
-                        precioMenu -=1;
-                    }
-                }
-            });
+
+            }
+        })*/
+
 
 
         calcular = (Button) findViewById(R.id.btCal);
@@ -236,7 +204,21 @@ public class MainActivity extends AppCompatActivity {
                 if (Cantidad.getText().toString().isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Inserta el número de entradas", Toast.LENGTH_SHORT).show();
                 } else {
-                    int unidades = Integer.parseInt(Cantidad.getText().toString());
+                        //CHECKBOX
+                        if (saladas.isChecked()) {
+                            extra += " Saladas. ";
+                            precioMenu += 1;
+                        }
+                        if (dulces.isChecked()) {
+                            extra += " Dulces. ";
+                            precioMenu += 1;
+                        }
+                        if (nachos.isChecked()) {
+                            extra += " Nachos. ";
+                            precioMenu += 1;
+                        }
+
+                        int unidades = Integer.parseInt(Cantidad.getText().toString());
                     precioTotal = 0;
                     sum = precioP * unidades;
                     precioTotal = sum + precioMenu;
@@ -264,6 +246,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        extra="";
+    }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
@@ -278,18 +266,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent acerca = new Intent(this, AcercaDe.class);
                 startActivity(acerca);
                 return true;
+            case R.id.Opc3:
+               Intent Listar = new Intent(this, ListarSegunda.class);
+               startActivity(Listar);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
 
     }
 
-
-} class ViewHolder{
-    TextView nombre, genero, precio, horario;
-    ImageView imagen;
 }
-
 
 
 

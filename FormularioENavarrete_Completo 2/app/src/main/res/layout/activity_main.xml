@@ -76,62 +76,30 @@
         android:orientation="horizontal">
 
         <CheckBox
-            android:layout_width="40dp"
-            android:textSize="8dp"
+            android:layout_width="88dp"
+            android:textSize="12dp"
             android:layout_height="wrap_content"
-            android:text="L"
+            android:text="Saladas"
             android:typeface="sans"
             android:id="@+id/cbl"
             android:checked="true"
             />
 
         <CheckBox
-            android:layout_width="40dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="8dp"
-            android:text="M"
+            android:textSize="12dp"
+            android:text="Dulces"
             android:typeface="sans"
             android:id="@+id/cbm"
             />
         <CheckBox
-            android:layout_width="40dp"
-            android:textSize="8dp"
+            android:layout_width="93dp"
+            android:textSize="12dp"
             android:layout_height="wrap_content"
-            android:text="X"
+            android:text="Nachos"
             android:typeface="sans"
             android:id="@+id/cbx"
-            />
-        <CheckBox
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:textSize="8dp"
-            android:text="J"
-            android:typeface="sans"
-            android:id="@+id/cbj"
-            />
-        <CheckBox
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:textSize="8dp"
-            android:text="V"
-            android:typeface="sans"
-            android:id="@+id/cbv"
-            />
-        <CheckBox
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:textSize="8dp"
-            android:text="S"
-            android:typeface="sans"
-            android:id="@+id/cbs"
-            />
-        <CheckBox
-            android:layout_width="40dp"
-            android:textSize="8dp"
-            android:layout_height="wrap_content"
-            android:text="D"
-            android:typeface="sans"
-            android:id="@+id/cbd"
             />
     </LinearLayout>
     <LinearLayout
