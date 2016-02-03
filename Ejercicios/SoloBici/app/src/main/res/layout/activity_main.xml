@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="30dip"
+    android:background="@color/color2" >
+
+    <Button
+        android:id="@+id/btGame"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color3"
+        android:text="Jugar" />
+
+    <Button
+        android:id="@+id/btAcerca"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color3"
+        android:text="@string/Acercade" />
+
+    <Button
+        android:id="@+id/btExit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color3"
+        android:text="@string/Salir" />
+
+</LinearLayout>

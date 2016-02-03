@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity" >
+    <item android:id="@+id/Opc1" android:title="Dibuja"
+        android:text="Dibuja"></item>
+
+    <item android:id="@+id/Opc2" android:title="Acerca de"
+        android:text="AcercaD"
+        ></item>
+    <item android:id="@+id/Opc3" android:title="Ver mis Pedidos"
+        android:text="Pedidos"
+        ></item>
+    <item android:id="@+id/Opc4" android:title="Ver todos los usuarios"
+        android:text="Usuarios"
+        ></item>
+</menu>
