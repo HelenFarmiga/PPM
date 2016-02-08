@@ -1,7 +1,4 @@
 <resources>
     <string name="app_name">BajarPagGoogle</string>
     <string name="action_settings">Settings</string>
-    <string name="pag_url">URL de la pagina: </string>
-    <string name="download">Descargar Web</string>
-
-    </resources>
+</resources>
