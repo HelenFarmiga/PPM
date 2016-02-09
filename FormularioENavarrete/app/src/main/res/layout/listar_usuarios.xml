@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:gravity="center_vertical|center_horizontal"
+    android:weightSum="1">
+    <TextView
+        android:layout_width="74dp"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:id="@+id/tId" />
+
+    <ImageButton
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/borrarUsuario"
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:background="@drawable/logo2"
+        android:layout_alignLeft="@+id/tId"/>
+
+    <TextView
+        android:layout_width="74dp"
+        android:layout_height="wrap_content"
+        android:text="Elena"
+        android:id="@+id/tUsuario"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+        android:layout_width="74dp"
+        android:layout_height="match_parent"
+        android:text="cine22"
+        android:id="@+id/tContra"
+        android:layout_gravity="center_horizontal" />
+    <TextView
+        android:layout_width="74dp"
+        android:layout_height="match_parent"
+        android:text="elelenacon@gmail.com"
+        android:id="@+id/tEmail"
+        android:layout_gravity="center_horizontal" />
+    <TextView
+        android:layout_width="74dp"
+        android:layout_height="match_parent"
+        android:text="Valencia"
+        android:id="@+id/tCiudad"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>
