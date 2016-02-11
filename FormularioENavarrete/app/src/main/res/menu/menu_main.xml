@@ -12,7 +12,7 @@
     <item android:id="@+id/Opc4" android:title="Ver todos los usuarios"
         android:text="Usuarios"
         ></item>
-    <item android:id="@+id/Opc5" android:title="Iniciar sesion de nuevo"
+    <item android:id="@+id/Opc5" android:title="Cerrar sesion. "
         android:text="log in"
         ></item>
 </menu>
