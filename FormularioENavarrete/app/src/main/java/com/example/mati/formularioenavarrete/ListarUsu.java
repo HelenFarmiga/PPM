@@ -22,7 +22,7 @@ public class ListarUsu extends AppCompatActivity {
         ListView list;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_activity);
-        CargarArray();
+        Cargar();
         Adaptador adaptador = new Adaptador(this);
         list = (ListView) findViewById(R.id.lsUser);
         list.setAdapter(adaptador);
@@ -68,7 +68,7 @@ public class ListarUsu extends AppCompatActivity {
                 return (item);
             }
         }
-    public void CargarArray() {
+    public void Cargar() {
         SQLiteHelper sq = new SQLiteHelper(this, "cine.sqlite", null, 1);
         SQLiteDatabase bd = sq.getReadableDatabase();
         if (bd != null) {
