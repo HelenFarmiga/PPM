@@ -21,7 +21,7 @@ import java.util.List;
 public class ShapeDrawableView extends View {
     private List<ShapeDrawable> shapes = new ArrayList<ShapeDrawable>();
     private Integer[] mColors =
-            { Color.BLACK, Color.BLUE, Color.GREEN, Color.RED };
+            { Color.BLACK, Color.YELLOW, Color.GREEN, Color.RED };
 
     public ShapeDrawableView(Context context) {
         super(context);    }

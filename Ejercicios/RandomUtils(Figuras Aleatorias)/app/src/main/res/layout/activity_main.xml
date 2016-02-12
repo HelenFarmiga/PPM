@@ -3,17 +3,26 @@
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/backg">
 
     <Button
     android:onClick="launchDrawShapes1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="random_shape_button_label" />
+    android:text="random_shape_button_label"
+        android:background="@color/button"/>
 
     <Button
     android:onClick="launchDrawShapes2"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="shape_drawable_button_label" />
+    android:text="shape_drawable_button_label"
+        android:background="@color/button"/>
+    <Button
+        android:onClick="launchDrawShapes3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Figuras"
+        android:background="@color/button"/>
 </LinearLayout>

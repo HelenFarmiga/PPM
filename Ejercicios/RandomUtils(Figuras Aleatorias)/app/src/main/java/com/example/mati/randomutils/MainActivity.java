@@ -22,4 +22,9 @@ public class MainActivity extends AppCompatActivity {
                 new Intent(this, DrawShapes2.class);
         startActivity(activityIntent);
     }
+    public void launchDrawShapes3(View clickedButton) {
+        Intent activityIntent =
+                new Intent(this, DrawShapes3.class);
+        startActivity(activityIntent);
+    }
 }
